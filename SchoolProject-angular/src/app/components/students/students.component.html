@@ -1,0 +1,83 @@
+<div class="row">
+
+  <!-- !Student selected part -->
+  <div class="col-sm-6" *ngIf="selectedStudent">
+    <app-title [titulo]='(selectedStudent.id === 0 ? " new student" : "Name: " + selectedStudent.name )'>
+      <button class=" btn btn-outline-danger" (click)="volver()">Close</button>
+    </app-title>
+
+
+    <form [formGroup]="studentForm" (submit)="submitStudent()">
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" formControlName="name" class="form-control" id="name" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3">
+        <label for="surname" class="form-label">Surname</label>
+        <input type="text" formControlName="surname" class="form-control" id="surname">
+      </div>
+      <div class="mb-3">
+        <label for="phone" class="form-label">Phone</label>
+        <input type="text" formControlName="phone" class="form-control" id="phone">
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary" [disabled]="!studentForm.valid">{{selectedStudent.id === 0 ?
+          'Insert' : 'Update'}} </button>
+      </div>
+    </form>
+
+  </div>
+
+
+  <!-- !Student NOT selected part -->
+  <!-- If a student was selected then show col-sm-6 class, otherwise col-sm-12 -->
+  <div [ngClass]="{'col-sm-6': selectedStudent, 'col-sm-12': !selectedStudent}">
+    <!-- <div class="col-sm-6" *ngIf="selectedStudent == ' ' || !selectedStudent"> -->
+    <app-title [titulo]="title">
+      <button class=" btn btn-success" (click)="createStudent()">Add student</button>
+    </app-title>
+
+    <table class="table table-hover">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">Details</th>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Speciality</th>
+          <th scope="col">Phone</th>
+          <th scope="col">Options</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let stu of students">
+          <td><button (click)="selectStudent(stu)" class="btn btn-outline-warning">Detail</button></td>
+          <td scope="row">{{ stu.id}}</td>
+          <td>{{ stu.name}}</td>
+          <td>{{ stu.surname}}</td>
+          <td>{{ stu.phone}}</td>
+          <td>
+            <div class="btn-group">
+              <button (click)="openModal(template)" class="btn btn-outline-primary">Teachers</button>
+              <button class="btn btn-outline-danger" (click)="desactivateStudent(stu.id)">Deactivate</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+<!-- !Teachers Modal -->
+ 
+<ng-template #template>
+  <div class="modal-header">
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+    </button>
+  </div>
+  <div class="modal-body">
+    <app-teachers></app-teachers>
+  </div>
+
+</ng-template>

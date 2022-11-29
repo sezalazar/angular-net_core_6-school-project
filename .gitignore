@@ -1,0 +1,46 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# Compiled output
+/SchoolProject-angular/dist
+/SchoolProject-angular/tmp
+/SchoolProject-angular/out-tsc
+/SchoolProject-angular/bazel-out
+
+# Node
+/SchoolProject-angular/node_modules
+/SchoolProject-angular/npm-debug.log
+/SchoolProject-angular/yarn-error.log
+
+# IDEs and editors
+/SchoolProject-angular/.idea/
+/SchoolProject-angular/.project
+/SchoolProject-angular/.classpath
+/SchoolProject-angular/.c9/
+/SchoolProject-angular/*.launch
+/SchoolProject-angular/.settings/
+/SchoolProject-angular/*.sublime-workspace
+
+# Visual Studio Code
+.vscode/*
+/SchoolProject-angular/.vscode/*
+/SchoolProject-angular/!.vscode/settings.json
+/SchoolProject-angular/!.vscode/tasks.json
+/SchoolProject-angular/!.vscode/launch.json
+/SchoolProject-angular/!.vscode/extensions.json
+/SchoolProject-angular/.history/*
+/SchoolProject-WebAPI/.vscode/*
+/SchoolProject-WebAPI/bin/
+/SchoolProject-WebAPI/obj/
+
+# Miscellaneous
+/SchoolProject-angular/.angular/cache
+/SchoolProject-angular/.sass-cache/
+/SchoolProject-angular/connect.lock
+/SchoolProject-angular/coverage
+/SchoolProject-angular/libpeerconnection.log
+/SchoolProject-angular/testem.log
+/SchoolProject-angular/typings
+
+# System files
+/SchoolProject-angular/.DS_Store
+/SchoolProject-angular/Thumbs.db
